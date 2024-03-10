@@ -1,0 +1,99 @@
+﻿@model IEnumerable<NotificationApp.Models.Produccion>
+
+@{
+    ViewData["Title"] = "Lista de Produccion";
+}
+
+<h1 class="text-center">Produccion Dulces Morita</h1>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class ="card-header bg-dark">
+                <h3 class="text-white"><strong>Lista de Produccion</strong></h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-bordered" id="tblProduccion" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.Id)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Referencia)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Operario)</th>
+                                    <th>@Html.DisplayNameFor(m => m.CantidadBuenas)</th>
+                                    <th>@Html.DisplayNameFor(m => m.CantidadMalas)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FechaHoraInicio)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FechaHoraFin)</th>
+                                    <th>@Html.DisplayNameFor(m => m.GastosAdicionales)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Observacion)</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model)
+                                {
+                                    <tr>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.Id)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.Referencia)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.Operario)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.CantidadBuenas)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.CantidadMalas)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.FechaHoraInicio)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.FechaHoraFin)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.GastosAdicionales)</td>
+                                        <td class="align-middle text-center">@Html.DisplayFor(m => item.Observacion)</td>
+                                        <td class="align-middle text-center">
+                                            <a class="btn btn-warning btn-sm" asp-action="Editar" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i>Editar</a>
+                                            <a class="btn btn-secondary btn-sm" asp-action="Detalle" asp-route-id="@item.Id"><i class="bi bi-info-circle-fill"></i>Detalle</a>
+                                            <a class="btn btn-danger btn-sm" asp-action="Borrar" asp-route-id="@item.Id"><i class="bi bi-eraser-fill"></i>Borrar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No hay registro</p>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            //Llamar a datatable
+            $('#tblProduccion').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+}
+

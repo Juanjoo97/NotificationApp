@@ -1,0 +1,56 @@
+﻿@model NotificationApp.Models.Produccion
+
+@{
+    ViewData["Title"] = "Editar Lista de Produccion";
+}
+
+<h1 class="text-center">Produccion Dulces Morita</h1>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"><strong> Editar Lista de Produccion</strong></h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Editar">
+
+                    <!-- ID del usuario como campo oculto-->
+                    <input type="hidden" asp-for="Id"/>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group"> 
+                        <label asp-for="Operario" class="control-label"></label>
+                        <input asp-for="Operario" class="form-control" placeholder="Ingresa el nombre del Operario" />
+                        <span asp-validation-for="Operario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CantidadBuenas" class="control-label"></label>
+                        <input asp-for="CantidadBuenas" class="form-control" placeholder="Ingresa el la cantidad de Piezas buenas" />
+                        <span asp-validation-for="CantidadBuenas" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GastosAdicionales" class="control-label"></label>
+                        <input asp-for="GastosAdicionales" class="form-control" placeholder="Ingresa el gasto adicional" />
+                        <span asp-validation-for="GastosAdicionales" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Observacion" class="control-label"></label>
+                        <input asp-for="Observacion" class="form-control" placeholder="Ingresa una observacion" />
+                        <span asp-validation-for="Observacion" class="text-danger"></span>
+                    </div>
+                    <div class ="form-group mt-3">
+                        <button type="submit" class=" btn btn-primary d-block mx-auto">Editar Produccion</button>
+                    </div>
+                </form>
+                <a asp-controller="Inicio" asp-action="Index">Volver</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+

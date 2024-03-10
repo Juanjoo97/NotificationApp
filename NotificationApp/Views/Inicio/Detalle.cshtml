@@ -1,0 +1,38 @@
+﻿@model NotificationApp.Models.Produccion
+
+@{
+    ViewData["Title"] = "Detalle  Lista de Produccion";
+}
+
+<h1 class="text-center">Produccion Dulces Morita</h1>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"><strong>Detalle Lista de Produccion</strong></h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Id:</strong> @Html.DisplayFor(m => m.Id)
+                    <li class="list-group-item"><strong>Referencia:</strong> @Html.DisplayFor(m => m.Referencia)
+                    <li class="list-group-item"><strong>Nombre:</strong> @Html.DisplayFor(m => m.Operario)
+                    <li class="list-group-item"><strong>Piezas Buenas:</strong> @Html.DisplayFor(m => m.CantidadBuenas)
+                    <li class="list-group-item"><strong>Piezas Malas:</strong> @Html.DisplayFor(m => m.CantidadMalas)
+                    <li class="list-group-item"><strong>Fecha Inicio:</strong> @Html.DisplayFor(m => m.FechaHoraInicio)
+                    <li class="list-group-item"><strong>Fecha Final:</strong> @Html.DisplayFor(m => m.FechaHoraFin)
+                    <li class="list-group-item"><strong>Gastos Adicionales:</strong> @Html.DisplayFor(m => m.GastosAdicionales)
+                    <li class="list-group-item"><strong>Observaciones:</strong> @Html.DisplayFor(m => m.Observacion)
+                    </li>
+                </ul>
+                <a asp-controller="Inicio" asp-action="Index">Volver</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
